@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dự đoán Năm Tiếp Theo</title>
+    <link rel="stylesheet" href="fm.css">
+</head>
+<body>
+<img src="90ab2975-bb9d-4f46-bd87-0acf510a172b.png" alt="Logo UET" class="logo">
+
+<div class="container">
+    <h2>🔮 Dự đoán Năm Tiếp Theo</h2>
+    <p>Nhập vào năm hiện tại và để AI của chúng tôi dự đoán năm tiếp theo!</p>
+
+    <input type="number" id="year" placeholder="Nhập năm hiện tại..." />
+    <button onclick="predict()">Dự đoán</button>
+
+    <div id="result-box">
+        <div id="result">👉 Kết quả sẽ hiện ở đây</div>
+    </div>
+</div>
+
+<script>
+    function predict() {
+        let year = document.getElementById("year").value;
+        let resultDiv = document.getElementById("result");
+
+        if (year === "") {
+            resultDiv.innerHTML = "⚠️ Đm nhập số năm vào trước!";
+            return;
+        }
+
+        resultDiv.innerHTML = `
+            <div class="loading">
+                <div class="spinner"></div>
+                <span>Loading...</span>
+            </div>
+        `;
+
+        // B2: Sau 1 giây → hiện "Đang chờ..."
+        setTimeout(() => {
+            resultDiv.innerHTML = "⏳ Đang kết nối tới máy chủ...";
+        }, 2000);
+        setTimeout(() => {
+            resultDiv.innerHTML = "⏳ Đang chờ AI tính toán...";
+        }, 4000);
+        setTimeout(() => {
+            resultDiv.innerHTML = "⏳ Hello world";
+        }, 6000);
+        setTimeout(() => {
+            resultDiv.innerHTML = "🤯 Phép tính thành công";
+        }, 8000);
+        setTimeout(() => {
+            resultDiv.innerHTML = "⏳ Bình tĩnh";
+        }, 10000);
+        // B3: Sau thêm 1 giây nữa → hiện kết quả
+        setTimeout(() => {
+            let nextYear = parseInt(year) + 1;
+            resultDiv.innerHTML = "✨ Năm tiếp theo là: " + nextYear;
+        }, 11000);
+    }
+</script>
+</body>
+</html>
